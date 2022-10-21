@@ -1,0 +1,71 @@
+@use "sass:math";
+@import "src/assets/style/Style.module";
+
+.Card:hover .CardMain {
+  transform: perspective(rem(600)) rotateY(-180deg);
+
+}
+
+.Card:hover .CardBack {
+  transform: perspective(rem(600)) rotateY(0);
+
+}
+
+.Card {
+  @include adaptiveValue("width", 340, 170);
+  @include adaptiveValue("height", 480, 240);
+  @media (max-width: em(479.98)) {
+    width: 100%;
+  }
+  background-color: red;
+  position: relative;
+
+  &Main,
+  &Back {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform 0.5s ease;
+    border-radius: rem(10);
+    background: linear-gradient($MaroonColor, $PinkColor);
+    color: $BeigeColor;
+    @include adaptiveValue("padding", 30, 20);
+    h2 {
+      font-weight: 800;
+      @include adaptiveValue("font-size", 30, 20);
+      @include adaptiveValue("margin-bottom", 20, 10);
+      letter-spacing: 0.037rem;
+    }
+
+    p {
+      @include adaptiveValue("font-size", 18, 14);
+      line-height: math.div(24, 18);
+      @include adaptiveValue("margin-bottom", 20, 10);
+    }
+    button {
+      @include adaptiveValue("padding-top", 20, 18);
+      @include adaptiveValue("padding-bottom", 20, 18);
+      @include adaptiveValue("padding-left", 30, 20);
+      @include adaptiveValue("padding-right", 30, 20);
+      background: linear-gradient($BeigeColor, $PeachColor);
+      color: $MaroonColor;
+      border-radius: rem(20);
+    }
+  }
+
+  &Main {
+    transform: perspective(rem(600)) rotateY(0);
+  }
+
+  &Back {
+    transform: perspective(rem(600)) rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
