@@ -1,21 +1,62 @@
-.Loader {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
+@import "src/assets/style/Style.module";
+
+.LoaderBig {
+  width: rem(80);
+  height: rem(80);
 
   div {
-    transform-origin: 40px 40px;
+    transform-origin: rem(40) rem(40);
+    &::after {
+      top: rem(3);
+      left: rem(37);
+      width: rem(6);
+      height: rem(18);
+    }
+  }
+}
+
+.LoaderMedium {
+  width: rem(60);
+  height: rem(60);
+
+  div {
+    transform-origin: rem(30) rem(30);
+    &::after {
+      top: rem(2);
+      left: rem(26);
+      width: rem(5);
+      height: rem(12);
+    }
+  }
+}
+
+.LoaderSmall {
+  width: rem(40);
+  height: rem(40);
+
+  div {
+    transform-origin: rem(20) rem(20);
+    &::after {
+      top: rem(1.5);
+      left: rem(18.5);
+      width: rem(3);
+      height: rem(9);
+    }
+  }
+}
+
+.LoaderSmall,
+.LoaderMedium,
+.LoaderBig {
+  display: inline-block;
+  position: relative;
+  div {
     animation: lds-spinner 1.2s linear infinite;
 
     &::after {
       content: " ";
       display: block;
       position: absolute;
-      top: 3px;
-      left: 37px;
-      width: 6px;
-      height: 18px;
       border-radius: 20%;
       background: red;
     }

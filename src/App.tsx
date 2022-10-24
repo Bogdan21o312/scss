@@ -6,7 +6,7 @@ import Loader from "./components/Loader";
 const App = () => {
     return (
         <div>
-            <Loader/>
+            <Loader size={'medium'}/>
         </div>
     );
 };
