@@ -4,6 +4,7 @@ import ButtonNeon from "./components/ButtonNeon";
 const App = () => {
     return (
         <div>
+            <ButtonNeon />
         </div>
     );
 };
